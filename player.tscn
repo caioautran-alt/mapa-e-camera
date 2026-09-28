@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cyyqfptr8cpyv"]
+
+[ext_resource type="Script" uid="uid://w0kqc0qukru6" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cr4rk4o5txtvu" path="res://arte/tilemap_packed.png" id="2_i3pqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(256, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(272, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7awc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4aaf"]
+size = Vector2(13, 14)
+
+[node name="player" type="CharacterBody2D" unique_id=1421750647]
+script = ExtResource("1_onrkg")
+
+[node name="animacao" type="AnimatedSprite2D" parent="." unique_id=676614972]
+sprite_frames = SubResource("SpriteFrames_s7awc")
+
+[node name="corpo" type="CollisionShape2D" parent="." unique_id=379909372]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_v4aaf")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1960146837]
